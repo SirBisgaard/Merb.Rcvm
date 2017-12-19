@@ -20,6 +20,14 @@
     <Content Remove="ClientApp\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ClientApp\app\components\reports\" />
+    <Folder Include="ClientApp\app\components\recycling-centers\" />
+    <Folder Include="ClientApp\app\components\parts\" />
+    <Folder Include="ClientApp\app\components\users\" />
+    <Folder Include="ClientApp\app\components\vehicles\" />
+  </ItemGroup>
+
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">
