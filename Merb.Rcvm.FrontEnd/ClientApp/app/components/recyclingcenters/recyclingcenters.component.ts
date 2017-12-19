@@ -6,4 +6,5 @@ import { Component } from '@angular/core';
     styleUrls: ['./recyclingcenters.component.css']
 })
 export class RecyclingCentersComponent {
+    title: string = "Recycling Centers"
 }

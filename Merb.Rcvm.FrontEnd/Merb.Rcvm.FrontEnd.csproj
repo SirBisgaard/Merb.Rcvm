@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,12 +18,14 @@
 
   <ItemGroup>
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
+    <Compile Remove="ClientApp\app\components\recycling-centers\**" />
     <Content Remove="ClientApp\**" />
+    <EmbeddedResource Remove="ClientApp\app\components\recycling-centers\**" />
+    <None Remove="ClientApp\app\components\recycling-centers\**" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="ClientApp\app\components\reports\" />
-    <Folder Include="ClientApp\app\components\recycling-centers\" />
     <Folder Include="ClientApp\app\components\parts\" />
     <Folder Include="ClientApp\app\components\users\" />
     <Folder Include="ClientApp\app\components\vehicles\" />

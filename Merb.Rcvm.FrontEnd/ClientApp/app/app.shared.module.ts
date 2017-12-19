@@ -4,11 +4,16 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+// Services 
+import { RecyclingCenterService } from "./services/recyclingcenterservice";
+
+// Components 
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PartsComponent } from './components/parts/parts.component';
 import { RecyclingCentersComponent } from './components/recyclingcenters/recyclingcenters.component';
+import { RecyclingCenterMenuComponent } from './components/recyclingcenters/menu/recyclingcentermenu.component';
 import { ReportsComponent } from './components/reports/reports.component';
 import { UsersComponent } from './components/users/users.component';
 import { VehiclesComponent } from './components/vehicles/vehicles.component';
@@ -20,6 +25,7 @@ import { VehiclesComponent } from './components/vehicles/vehicles.component';
         DashboardComponent,
         PartsComponent,
         RecyclingCentersComponent,
+        RecyclingCenterMenuComponent,
         ReportsComponent,
         UsersComponent,
         VehiclesComponent,

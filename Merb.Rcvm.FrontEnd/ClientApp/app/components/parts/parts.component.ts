@@ -6,4 +6,5 @@ import { Component } from '@angular/core';
     styleUrls: ['./parts.component.css']
 })
 export class PartsComponent {
+    public title: string = "Parts"
 }
