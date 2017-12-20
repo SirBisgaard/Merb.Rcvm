@@ -9,8 +9,17 @@ import 'rxjs/add/operator/map';
 export class RecyclingCenterService {
     constructor(private http: Http, @Inject('BASE_URL') private baseUrl: string) {}
 
+    static selectedRecyclingCenter: RecyclingCenter
+
     public getRecyclingCenters(): Observable<RecyclingCenter[]> {
         return this.http.get(this.baseUrl + 'api/RecyclingCenter').map(res => (res.json() as RecyclingCenter[]));
     }
-    
+
+    public getSelectedRecyclingCenter(): RecyclingCenter {
+        return RecyclingCenterService.selectedRecyclingCenter;
+    }
+
+    public setSelectedRecyclingCenter(recyclingCenter: RecyclingCenter): void {
+        RecyclingCenterService.selectedRecyclingCenter = recyclingCenter;
+    }
 }

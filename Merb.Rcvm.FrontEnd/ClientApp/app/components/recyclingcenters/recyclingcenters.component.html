@@ -1,1 +1,25 @@
 <recycling-center-menu [title]="title"></recycling-center-menu>
+<div class="container">
+    <table class="table table-responsive table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let center of recyclingCenters">
+                <th scope="row">1</th>
+                <td>{{center.name}}</td>
+                <td>
+                    <div class="btn-group btn-group-sm" role="group">
+                        <button type="button" class="btn btn-info"><span class='glyphicon glyphicon-search'></span></button>
+                        <button type="button" class="btn btn-warning"><span class='glyphicon glyphicon-edit'></span></button>
+                        <button type="button" class="btn btn-danger"><span class='glyphicon glyphicon-trash'></span></button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

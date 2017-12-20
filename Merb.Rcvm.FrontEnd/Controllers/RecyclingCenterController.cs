@@ -15,9 +15,14 @@ namespace Merb.Rcvm.FrontEnd.Controllers
         [HttpGet]
         public IEnumerable<RecyclingCenter> Get()
         {
-            return new RecyclingCenter[] {
-                new RecyclingCenter { Name = "Center A" },
-            new RecyclingCenter { Name = "Center B"},};
+            return new RecyclingCenter[]
+            {
+                new RecyclingCenter { Id ="1", Name = "Center A" },
+                new RecyclingCenter { Id ="2", Name = "Center B" },
+                new RecyclingCenter { Id ="3", Name = "Center C" },
+                new RecyclingCenter { Id ="4", Name = "Center D" },
+                new RecyclingCenter { Id ="5", Name = "Center E" },
+            };
         }
 
         // GET: api/RecyclingCenter/5
@@ -48,6 +53,7 @@ namespace Merb.Rcvm.FrontEnd.Controllers
 
     public class RecyclingCenter
     {
+        public string Id { get; set; }
         public string Name { get; set; }
     }
 }
