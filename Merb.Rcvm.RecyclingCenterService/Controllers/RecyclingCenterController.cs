@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Merb.Rcvm.RecyclingCenterService.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class RecyclingCenterController : Controller
     {
         // GET api/values
         [HttpGet]
