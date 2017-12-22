@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 import { RecyclingCenterService } from "../../../services/recyclingcenterservice";
 import { RecyclingCenter } from "../../../domain/RecyclingCenter";
 
 @Component({
-    selector: 'recycling-center-menu',
-    templateUrl: './recyclingcentermenu.component.html',
-    styleUrls: ['./recyclingcentermenu.component.css'],
+    selector: "recycling-center-menu",
+    templateUrl: "./recyclingcentermenu.component.html",
+    styleUrls: ["./recyclingcentermenu.component.css"],
     providers: [RecyclingCenterService]
 })
 export class RecyclingCenterMenuComponent implements OnInit {

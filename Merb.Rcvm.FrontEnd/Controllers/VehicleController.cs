@@ -8,40 +8,40 @@ namespace Merb.Rcvm.FrontEnd.Controllers
 {
     [Produces("application/json")]
     [Consumes("application/json")]
-    [Route("api/RecyclingCenter")]
-    public class RecyclingCenterController : Controller
+    [Route("api/Vehicle")]
+    public class VehicleController : Controller
     {
-        private readonly HttpServiceClient<RecyclingCenter> _serviceClient;
+        private readonly HttpServiceClient<Vehicle> _serviceClient;
 
-        public RecyclingCenterController()
+        public VehicleController()
         {
-            _serviceClient = new HttpServiceClient<RecyclingCenter>("http://localhost:5050/api/RecyclingCenter/");
+            _serviceClient = new HttpServiceClient<Vehicle>("http://localhost:5040/api/Vehicle/");
         }
 
         // GET: api/RecyclingCenter
         [HttpGet]
-        public async Task<IEnumerable<RecyclingCenter>> Get()
+        public async Task<IEnumerable<Vehicle>> Get()
         {
             return await _serviceClient.GetCollection();
         }
 
         // GET: api/RecyclingCenter/5
         [HttpGet("{id}")]
-        public async Task<RecyclingCenter> Get(string id)
+        public async Task<Vehicle> Get(string id)
         {
             return await _serviceClient.Get(id);
         }
 
         // POST: api/RecyclingCenter
         [HttpPost]
-        public async Task Post([FromBody]RecyclingCenter value)
+        public async Task Post([FromBody]Vehicle value)
         {
             await _serviceClient.Create(value);
         }
 
         // PUT: api/RecyclingCenter/5
         [HttpPut("{id}")]
-        public async Task Put(string id, [FromBody]RecyclingCenter value)
+        public async Task Put(string id, [FromBody]Vehicle value)
         {
             await _serviceClient.Update(value, id);
         }

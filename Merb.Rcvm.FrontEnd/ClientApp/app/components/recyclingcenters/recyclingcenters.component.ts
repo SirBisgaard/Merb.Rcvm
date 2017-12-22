@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 import { RecyclingCenterService } from "../../services/recyclingcenterservice";
 import { RecyclingCenter } from "../../domain/RecyclingCenter";
 
 @Component({
-    selector: 'recycling-centers',
-    templateUrl: './recyclingcenters.component.html',
-    styleUrls: ['./recyclingcenters.component.css'],
+    selector: "recycling-centers",
+    templateUrl: "./recyclingcenters.component.html",
+    styleUrls: ["./recyclingcenters.component.css"],
     providers: [RecyclingCenterService]
 })
 export class RecyclingCentersComponent {

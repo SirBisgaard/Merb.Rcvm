@@ -8,7 +8,7 @@ namespace Merb.Rcvm.FrontEnd.Domain
 {
     public class HttpServiceClient<T> where T : class
     {
-        private HttpClient _client;
+        private readonly HttpClient _client;
 
         public HttpServiceClient(string baseAddress)
         {
@@ -24,7 +24,7 @@ namespace Merb.Rcvm.FrontEnd.Domain
 
         public async Task<IEnumerable<T>> GetCollection(string path = "")
         {
-            HttpResponseMessage response = await _client.GetAsync(path);
+            var response = await _client.GetAsync(path);
             if (!response.IsSuccessStatusCode)
                 return new T[0];
 
@@ -33,7 +33,7 @@ namespace Merb.Rcvm.FrontEnd.Domain
 
         public async Task<T> Get(string id, string path = "")
         {
-            HttpResponseMessage response = await _client.GetAsync($"{path}{id}");
+            var response = await _client.GetAsync($"{path}{id}");
             if (!response.IsSuccessStatusCode)
                 return null;
 

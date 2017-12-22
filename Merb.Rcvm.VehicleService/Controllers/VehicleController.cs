@@ -1,44 +1,44 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Merb.Rcvm.RecyclingCenterService.Domain;
+using Merb.Rcvm.VehicleService.Domain;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Merb.Rcvm.RecyclingCenterService.Controllers
+namespace Merb.Rcvm.VehicleService.Controllers
 {
     [Route("api/[controller]")]
-    public class RecyclingCenterController : Controller
+    public class VehicleController : Controller
     {
-        private readonly RecyclingCenterRepository _repository;
+        private readonly VehicleRepository _repository;
 
-        public RecyclingCenterController()
+        public VehicleController()
         {
-            _repository = new RecyclingCenterRepository();
+            _repository = new VehicleRepository();
         }
 
         // GET api/values
         [HttpGet]
-        public async Task<IEnumerable<RecyclingCenter>> Get()
+        public async Task<IEnumerable<Vehicle>> Get()
         {
             return await _repository.GetAllRecyclingCenters();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public async Task<RecyclingCenter> Get(string id)
+        public async Task<Vehicle> Get(string id)
         {
             return await _repository.GetRecyclingCenterAsync(id);
         }
 
         // POST api/values
         [HttpPost]
-        public async Task Post([FromBody]RecyclingCenter recyclingCenter)
+        public async Task Post([FromBody]Vehicle recyclingCenter)
         {
             await _repository.CreateRecyclingCenter(recyclingCenter);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public async Task Put(int id, [FromBody]RecyclingCenter recyclingCenter)
+        public async Task Put(int id, [FromBody]Vehicle  recyclingCenter)
         {
             await _repository.UpdateRecyclingCenter(recyclingCenter);
         }

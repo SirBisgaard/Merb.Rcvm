@@ -48,6 +48,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{3B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Merb.Rcvm.FrontEnd.Domain", "Merb.Rcvm.FrontEnd.Domain\Merb.Rcvm.FrontEnd.Domain.csproj", "{C056724E-6912-4DAA-853B-F26BA4ED9FCF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Merb.Rcvm.VehicleService.Domain", "Merb.Rcvm.VehicleService.Domain\Merb.Rcvm.VehicleService.Domain.csproj", "{B0E7150D-9B70-4001-AD7E-095A3087EB9E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -94,6 +96,10 @@ Global
 		{C056724E-6912-4DAA-853B-F26BA4ED9FCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C056724E-6912-4DAA-853B-F26BA4ED9FCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C056724E-6912-4DAA-853B-F26BA4ED9FCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0E7150D-9B70-4001-AD7E-095A3087EB9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0E7150D-9B70-4001-AD7E-095A3087EB9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0E7150D-9B70-4001-AD7E-095A3087EB9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0E7150D-9B70-4001-AD7E-095A3087EB9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -116,6 +122,7 @@ Global
 		{9DC39B7D-5120-42BF-ABCE-B748D0A718C4} = {53950AC3-841F-4DD8-8865-644E65A4ADC4}
 		{2CDEF6C1-F79D-4271-8300-BBB36B6ADDCA} = {740284FA-475C-4326-A802-403752BAA1AE}
 		{C056724E-6912-4DAA-853B-F26BA4ED9FCF} = {3B7F59E4-B71F-4A47-AB8F-4B6B4EB51A6D}
+		{B0E7150D-9B70-4001-AD7E-095A3087EB9E} = {9DC39B7D-5120-42BF-ABCE-B748D0A718C4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {41791284-2BD3-4CE4-AC5E-691B84C365DE}

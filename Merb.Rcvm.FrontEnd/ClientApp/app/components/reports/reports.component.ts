@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-    selector: 'reports',
-    templateUrl: './reports.component.html',
-    styleUrls: ['./reports.component.css']
+    selector: "reports",
+    templateUrl: "./reports.component.html",
+    styleUrls: ["./reports.component.css"]
 })
 export class ReportsComponent {
     title: string = "Reports"

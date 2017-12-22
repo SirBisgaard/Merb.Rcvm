@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component } from "@angular/core";
+import { Router, ActivatedRoute } from "@angular/router";
 
 import { RecyclingCenterService } from "../../../services/recyclingcenterservice";
 import { RecyclingCenter } from "../../../domain/RecyclingCenter";
 
 @Component({
-    selector: 'recycling-centers-create-update',
-    templateUrl: './recyclingcenterscreateupdate.component.html',
-    styleUrls: ['./recyclingcenterscreateupdate.component.css'],
+    selector: "recycling-centers-create-update",
+    templateUrl: "./recyclingcenterscreateupdate.component.html",
+    styleUrls: ["./recyclingcenterscreateupdate.component.css"],
     providers: [RecyclingCenterService]
 })
 export class RecyclingCentersCreateUpdateComponent {
@@ -28,7 +28,7 @@ export class RecyclingCentersCreateUpdateComponent {
 
     ngOnInit(): void {
         this.activatedRoute.params.subscribe(params => {
-            let id = params['id'];
+            let id = params["id"];
 
             if (id == undefined)
                 return;
@@ -43,19 +43,19 @@ export class RecyclingCentersCreateUpdateComponent {
     public submit(): void {
         if (this.isUpdate) {
             this.service.updateRecyclingCenter(this.recyclingCenter, (result: any) => {
-                this.router.navigate(['recycling-centers']);
+                this.router.navigate(["recycling-centers"]);
             });
         }
         else {
             this.service.createRecyclingCenter(this.recyclingCenter, (result: any) => {
-                this.router.navigate(['recycling-centers']);
+                this.router.navigate(["recycling-centers"]);
             });
         }
     }
 
     public delete(): void {
         this.service.deleteRecyclingCenter(this.recyclingCenter.id, (result: any) => {
-            this.router.navigate(['recycling-centers']);
+            this.router.navigate(["recycling-centers"]);
         });
     }
 }
