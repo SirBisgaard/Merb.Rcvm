@@ -1,4 +1,4 @@
-﻿namespace Merb.Rcvm.RecyclingCenterService.Domain
+﻿namespace Merb.Rcvm.FrontEnd.Domain.DataTypes
 {
     public class RecyclingCenter
     {

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { RecyclingCenterService } from "../../../services/recyclingcenterservice";
 import { RecyclingCenter } from "../../../domain/RecyclingCenter";
@@ -10,9 +10,6 @@ import { RecyclingCenter } from "../../../domain/RecyclingCenter";
     providers: [RecyclingCenterService]
 })
 export class RecyclingCenterMenuComponent implements OnInit {
-
-    @Input()
-    public title: string = "";
     public recyclingCenters: RecyclingCenter[] = []
     public selectedRecyclingCenter: string;
 
@@ -23,15 +20,20 @@ export class RecyclingCenterMenuComponent implements OnInit {
             this.recyclingCenters = result;
             var selectedCenter = this.service.getSelectedRecyclingCenter()
 
-            if (selectedCenter == undefined && this.recyclingCenters.length > 0)
-                this.selectedRecyclingCenter = this.recyclingCenters[0].id;
-            else
-                this.selectedRecyclingCenter = selectedCenter.id;
+            if (this.recyclingCenters.length == 0) {
+                this.recyclingCenters = [{
+                    id: "None",
+                    name: "None"
+                } as RecyclingCenter]
+            }
+
+            this.selectedRecyclingCenter = selectedCenter == undefined ?
+                this.recyclingCenters[0].id :
+                selectedCenter.id;
         }, error => console.error(error));
     }
 
     public onChange(id: string): void {
-        console.log(id)
         this.selectedRecyclingCenter = id;
         var center = this.recyclingCenters.find(center => center.id == id) as RecyclingCenter;
         this.service.setSelectedRecyclingCenter(center);

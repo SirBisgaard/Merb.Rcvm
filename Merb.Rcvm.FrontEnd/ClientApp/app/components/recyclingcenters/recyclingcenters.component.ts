@@ -20,4 +20,10 @@ export class RecyclingCentersComponent {
             this.recyclingCenters = result;
         }, error => console.error(error));
     }
+
+    public delete(id: string): void {
+        this.service.deleteRecyclingCenter(id, (result: any) => {
+            this.ngOnInit();
+        });
+    }
 }

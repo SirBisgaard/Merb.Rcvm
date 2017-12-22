@@ -42,7 +42,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserService", "UserService"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VehicleService", "VehicleService", "{9DC39B7D-5120-42BF-ABCE-B748D0A718C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Merb.Rcvm.RecyclingCenterService.Domain", "Merb.Rcvm.RecyclingCenterService.Domain\Merb.Rcvm.RecyclingCenterService.Domain.csproj", "{2CDEF6C1-F79D-4271-8300-BBB36B6ADDCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Merb.Rcvm.RecyclingCenterService.Domain", "Merb.Rcvm.RecyclingCenterService.Domain\Merb.Rcvm.RecyclingCenterService.Domain.csproj", "{2CDEF6C1-F79D-4271-8300-BBB36B6ADDCA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{3B7F59E4-B71F-4A47-AB8F-4B6B4EB51A6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Merb.Rcvm.FrontEnd.Domain", "Merb.Rcvm.FrontEnd.Domain\Merb.Rcvm.FrontEnd.Domain.csproj", "{C056724E-6912-4DAA-853B-F26BA4ED9FCF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -86,11 +90,16 @@ Global
 		{2CDEF6C1-F79D-4271-8300-BBB36B6ADDCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CDEF6C1-F79D-4271-8300-BBB36B6ADDCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CDEF6C1-F79D-4271-8300-BBB36B6ADDCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C056724E-6912-4DAA-853B-F26BA4ED9FCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C056724E-6912-4DAA-853B-F26BA4ED9FCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C056724E-6912-4DAA-853B-F26BA4ED9FCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C056724E-6912-4DAA-853B-F26BA4ED9FCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{01C086F9-A674-436A-8162-210028DC6E1B} = {3B7F59E4-B71F-4A47-AB8F-4B6B4EB51A6D}
 		{D9F2C1A3-1529-414B-B236-C2772CD467FA} = {9DC39B7D-5120-42BF-ABCE-B748D0A718C4}
 		{71161418-0B7D-4BDB-947C-C6C144640E39} = {C36B3B6F-2288-428C-A8D3-A4C4B5C3BC05}
 		{3E83FB72-3F6A-4BCD-9FE9-F6E4BBB7742C} = {E75532B9-5B77-457F-8E77-3881137D3793}
@@ -106,6 +115,7 @@ Global
 		{1DA994F6-7019-46C6-B94F-814A08698A6A} = {53950AC3-841F-4DD8-8865-644E65A4ADC4}
 		{9DC39B7D-5120-42BF-ABCE-B748D0A718C4} = {53950AC3-841F-4DD8-8865-644E65A4ADC4}
 		{2CDEF6C1-F79D-4271-8300-BBB36B6ADDCA} = {740284FA-475C-4326-A802-403752BAA1AE}
+		{C056724E-6912-4DAA-853B-F26BA4ED9FCF} = {3B7F59E4-B71F-4A47-AB8F-4B6B4EB51A6D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {41791284-2BD3-4CE4-AC5E-691B84C365DE}
