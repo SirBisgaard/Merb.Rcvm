@@ -2,35 +2,42 @@
     <div class="col-md-8">
         <h1>{{title}}</h1>
     </div>
+    <recycling-center-menu (update)="recyclingCenterChange($event)"></recycling-center-menu>
     <div class="clearfix"></div>
     <hr />
     <table class="table table-responsive table-hover">
         <thead>
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Phone</th>
-            <th scope="col">City</th>
-            <th scope="col">Actions</th>
-        </tr>
+            <tr>
+                <th scope="col">Registration Number</th>
+                <th scope="col">VIN Number</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Model</th>
+                <th scope="col">Scrapped Date</th>
+                <th scope="col">Environment Treatment Date</th>
+                <th scope="col">Actions</th>
+            </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let center of recyclingCenters">
-            <td>{{center.name}}</td>
-            <td>{{center.phone}}</td>
-            <td>{{center.city}}</td>
-            <td>
-                <div class="btn-group btn-group-sm" role="group">
-                    <a [routerLink]="['./update/', center.id]" class="btn btn-warning">
-                        <span class='glyphicon glyphicon-edit'></span>
-                    </a>
-                    <button type="button" (click)="delete(center.id)" class="btn btn-danger"><span class='glyphicon glyphicon-trash'></span></button>
-                </div>
-            </td>
-        </tr>
+            <tr *ngFor="let vehicle of vehicles">
+                <td>{{vehicle.registrationNumber}}</td>
+                <td>{{vehicle.vinNumber}}</td>
+                <td>{{vehicle.brand}}</td>
+                <td>{{vehicle.model}}</td>
+                <td>{{vehicle.scrappedDate}}</td>
+                <td>{{vehicle.environmentTreatmentDate}}</td>
+                <td>
+                    <div class="btn-group btn-group-sm" role="group">
+                        <a [routerLink]="['./update/', vehicle.id]" class="btn btn-warning">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </a>
+                        <button type="button" (click)="delete(vehicle.id)" class="btn btn-danger"><span class='glyphicon glyphicon-trash'></span></button>
+                    </div>
+                </td>
+            </tr>
         </tbody>
     </table>
     <hr />
     <a [routerLink]="['./create']" class="btn btn-success">
-        <span class='glyphicon glyphicon-plus'></span> Add
+        <span class="glyphicon glyphicon-plus"></span> Add
     </a>
 </div>

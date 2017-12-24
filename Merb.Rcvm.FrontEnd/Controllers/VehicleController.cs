@@ -20,9 +20,10 @@ namespace Merb.Rcvm.FrontEnd.Controllers
 
         // GET: api/RecyclingCenter
         [HttpGet]
-        public async Task<IEnumerable<Vehicle>> Get()
+        [HttpGet("RecyclingCenter/{id}")]
+        public async Task<IEnumerable<Vehicle>> GetAll(string id)
         {
-            return await _serviceClient.GetCollection();
+            return await _serviceClient.GetCollection($"RecyclingCenter/{id}");
         }
 
         // GET: api/RecyclingCenter/5

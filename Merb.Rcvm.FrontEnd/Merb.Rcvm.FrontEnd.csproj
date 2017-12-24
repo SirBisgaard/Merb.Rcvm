@@ -28,7 +28,6 @@
     <Folder Include="ClientApp\app\components\reports\" />
     <Folder Include="ClientApp\app\components\parts\" />
     <Folder Include="ClientApp\app\components\users\" />
-    <Folder Include="ClientApp\app\components\vehicles\" />
   </ItemGroup>
 
   <ItemGroup>

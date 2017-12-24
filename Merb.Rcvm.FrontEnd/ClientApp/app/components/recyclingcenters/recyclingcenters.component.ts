@@ -10,8 +10,8 @@ import { RecyclingCenter } from "../../domain/RecyclingCenter";
     providers: [RecyclingCenterService]
 })
 export class RecyclingCentersComponent {
-    public title: string = "Recycling Centers"
-    public recyclingCenters: RecyclingCenter[] = []
+    public title: string = "Recycling Centers";
+    public recyclingCenters: RecyclingCenter[] = [];
 
     constructor(private service: RecyclingCenterService) { }
 

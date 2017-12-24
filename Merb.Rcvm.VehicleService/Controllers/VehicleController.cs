@@ -17,37 +17,38 @@ namespace Merb.Rcvm.VehicleService.Controllers
 
         // GET api/values
         [HttpGet]
-        public async Task<IEnumerable<Vehicle>> Get()
+        [HttpGet("RecyclingCenter/{id}")]
+        public async Task<IEnumerable<Vehicle>> GetAll(string id)
         {
-            return await _repository.GetAllRecyclingCenters();
+            return await _repository.GetAllVehicles(id);
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
         public async Task<Vehicle> Get(string id)
         {
-            return await _repository.GetRecyclingCenterAsync(id);
+            return await _repository.GetVehicle(id);
         }
 
         // POST api/values
         [HttpPost]
         public async Task Post([FromBody]Vehicle recyclingCenter)
         {
-            await _repository.CreateRecyclingCenter(recyclingCenter);
+            await _repository.CreateVehicle(recyclingCenter);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
         public async Task Put(int id, [FromBody]Vehicle  recyclingCenter)
         {
-            await _repository.UpdateRecyclingCenter(recyclingCenter);
+            await _repository.UpdateVehicle(recyclingCenter);
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
         public async Task Delete(string id)
         {
-            await _repository.DeleteRecyclingCenter(id);
+            await _repository.DeleteVehicle(id);
         }
     }
 }

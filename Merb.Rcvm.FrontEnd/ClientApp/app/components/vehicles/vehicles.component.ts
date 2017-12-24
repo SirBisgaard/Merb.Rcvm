@@ -1,28 +1,32 @@
 import { Component } from "@angular/core";
 
-import { RecyclingCenterService } from "../../services/recyclingcenterservice";
-import { RecyclingCenter } from "../../domain/RecyclingCenter";
+import { VehicleService } from "../../services/vehicleservice";
+import { RecyclingCenterService} from "../../services/recyclingcenterservice";
+import { IVehicle } from "../../domain/Vehicle";
 
 @Component({
     selector: "vehicles",
     templateUrl: "./vehicles.component.html",
     styleUrls: ["./vehicles.component.css"],
-    providers: [RecyclingCenterService]
+    providers: [VehicleService, RecyclingCenterService]
 })
 export class VehiclesComponent {
     title: string = "Vehicles";
-    recyclingCenters: RecyclingCenter[] = [];
+    vehicles: IVehicle[] = [];
 
-    constructor(private readonly service: RecyclingCenterService) { }
+    constructor(private readonly vehicleService: VehicleService, private readonly recyclingCenterService: RecyclingCenterService) { }
 
     ngOnInit(): void {
-        this.service.getRecyclingCenters().subscribe(result => {
-            this.recyclingCenters = result;
+    }
+
+    recyclingCenterChange(id: string) {
+        this.vehicleService.getVehicles(id).subscribe(result => {
+            this.vehicles = result; 
         }, error => console.error(error));
     }
 
     delete(id: string): void {
-        this.service.deleteRecyclingCenter(id, (result: any) => {
+        this.vehicleService.deleteVehicle(id, () => {
             this.ngOnInit();
         });
     }

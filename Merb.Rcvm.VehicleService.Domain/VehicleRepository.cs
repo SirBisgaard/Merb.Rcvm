@@ -21,34 +21,35 @@ namespace Merb.Rcvm.VehicleService.Domain
             return collection;
         }
 
-        public async Task<IEnumerable<Vehicle>> GetAllRecyclingCenters()
+        public async Task<IEnumerable<Vehicle>> GetAllVehicles(string recyclingCenterId)
         {
             var collection = GetCollection();
-            return await collection.Find(Builders<Vehicle>.Filter.Empty).ToListAsync();
+            var filter = Builders<Vehicle>.Filter.Eq(rc => rc.RecyclingCenterId, recyclingCenterId);
+            return await collection.Find(filter).ToListAsync();
         }
 
-        public async Task<Vehicle> GetRecyclingCenterAsync(string id)
+        public async Task<Vehicle> GetVehicle(string id)
         {
             var collection = GetCollection();
             var filter = Builders<Vehicle>.Filter.Eq(rc => rc.Id, id);
             return await collection.Find(filter).SingleOrDefaultAsync();
         }
 
-        public async Task CreateRecyclingCenter(Vehicle recyclingCenter)
+        public async Task CreateVehicle(Vehicle vehicle)
         {
             var collection = GetCollection();
-            recyclingCenter.Id = $"{Guid.NewGuid()}";
-            await collection.InsertOneAsync(recyclingCenter);
+            vehicle.Id = $"{Guid.NewGuid()}";
+            await collection.InsertOneAsync(vehicle);
         }
 
-        public async Task UpdateRecyclingCenter(Vehicle recyclingCenter)
+        public async Task UpdateVehicle(Vehicle vehicle)
         {
             var collection = GetCollection();
-            var filter = Builders<Vehicle>.Filter.Eq(rc => rc.Id, recyclingCenter.Id);
-            await collection.FindOneAndReplaceAsync(filter, recyclingCenter);
+            var filter = Builders<Vehicle>.Filter.Eq(rc => rc.Id, vehicle.Id);
+            await collection.FindOneAndReplaceAsync(filter, vehicle);
         }
 
-        public async Task DeleteRecyclingCenter(string id)
+        public async Task DeleteVehicle(string id)
         {
             var collection = GetCollection();
             var filter = Builders<Vehicle>.Filter.Eq(rc => rc.Id, id);

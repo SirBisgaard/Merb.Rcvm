@@ -1,5 +1,5 @@
 <div class="container" *ngIf="!isUpdate">
-    <h1>New Recycling Center</h1>
+    <h1>Add Recycling Center</h1>
     <hr />
     <form name="recyclingCenterCreateUpdate" (ngSubmit)="submit()">
         <div class="col-lg-6 col-md-6">
@@ -20,15 +20,15 @@
         <div class="col-lg-6 col-md-6">
             <h3>Address Information</h3>
             <div class="form-group">
-                <label for="exampleInputEmail1">Address</label>
+                <label for="addressInput">Address</label>
                 <input [(ngModel)]="recyclingCenter.address" type="text" class="form-control" id="addressInput" name="addressInput" placeholder="Enter address">
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Zip</label>
-                <input [(ngModel)]="recyclingCenter.zip" type="number" class="form-control" id="numberInput" name="numberInput" placeholder="Enter zip">
+                <label for="zipInput">Zip</label>
+                <input [(ngModel)]="recyclingCenter.zip" type="number" class="form-control" id="zipInput" name="numberInput" placeholder="Enter zip">
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">City</label>
+                <label for="cityInput">City</label>
                 <input [(ngModel)]="recyclingCenter.city" type="text" class="form-control" id="cityInput" name="cityInput" placeholder="Enter city">
             </div>
         </div>
@@ -59,15 +59,15 @@
         <div class="col-lg-6 col-md-6">
             <h3>Address Information</h3>
             <div class="form-group">
-                <label for="exampleInputEmail1">Address</label>
+                <label for="addressInput">Address</label>
                 <input [(ngModel)]="recyclingCenter.address" type="text" class="form-control" id="addressInput" name="addressInput" placeholder="Enter address">
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Zip</label>
-                <input [(ngModel)]="recyclingCenter.zip" type="number" class="form-control" id="numberInput" name="numberInput" placeholder="Enter zip">
+                <label for="zipInput">Zip</label>
+                <input [(ngModel)]="recyclingCenter.zip" type="number" class="form-control" id="zipInput" name="numberInput" placeholder="Enter zip">
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">City</label>
+                <label for="cityInput">City</label>
                 <input [(ngModel)]="recyclingCenter.city" type="text" class="form-control" id="cityInput" name="cityInput" placeholder="Enter city">
             </div>
         </div>

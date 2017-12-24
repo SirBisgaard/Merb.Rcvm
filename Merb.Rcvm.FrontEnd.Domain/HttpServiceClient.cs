@@ -22,7 +22,7 @@ namespace Merb.Rcvm.FrontEnd.Domain
                 new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<IEnumerable<T>> GetCollection(string path = "")
+        public async Task<IEnumerable<T>>  GetCollection(string path = "")
         {
             var response = await _client.GetAsync(path);
             if (!response.IsSuccessStatusCode)

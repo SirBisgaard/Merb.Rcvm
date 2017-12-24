@@ -1,5 +1,5 @@
 ﻿import { Injectable, Inject } from "@angular/core";
-import { Http, RequestOptions, RequestMethod, Headers } from "@angular/http";
+import { Http, RequestOptions, Headers } from "@angular/http";
 
 import { RecyclingCenter } from "../domain/RecyclingCenter";
 import { Observable } from "rxjs/Observable";
@@ -9,7 +9,7 @@ import "rxjs/add/operator/map";
 export class RecyclingCenterService {
     constructor(private http: Http, @Inject("BASE_URL") private baseUrl: string) { }
 
-    static selectedRecyclingCenter: RecyclingCenter
+    static selectedRecyclingCenter: RecyclingCenter;
 
     public getRecyclingCenters(): Observable<RecyclingCenter[]> {
         return this.http.get(this.baseUrl + "api/RecyclingCenter").map(res => (res.json() as RecyclingCenter[]));
@@ -24,19 +24,19 @@ export class RecyclingCenterService {
     }
 
     public createRecyclingCenter(recyclingCenter: RecyclingCenter, complete: any): void {
-        let url = this.baseUrl + "api/RecyclingCenter";
-        let headers = new Headers();
+        const url = this.baseUrl + "api/RecyclingCenter";
+        const headers = new Headers();
         headers.append("Content-Type", "application/json");
-        let options = new RequestOptions({ headers: headers });
+        const options = new RequestOptions({ headers: headers });
 
         this.http.post(url, JSON.stringify(recyclingCenter), options).subscribe(complete, complete);
     }
 
     public updateRecyclingCenter(recyclingCenter: RecyclingCenter, complete: any): void {
-        let url = this.baseUrl + "api/RecyclingCenter/" + recyclingCenter.id;
-        let headers = new Headers();
+        const url = this.baseUrl + "api/RecyclingCenter/" + recyclingCenter.id;
+        const headers = new Headers();
         headers.append("Content-Type", "application/json");
-        let options = new RequestOptions({ headers: headers });
+        const options = new RequestOptions({ headers: headers });
 
         this.http.put(url, JSON.stringify(recyclingCenter), options).subscribe(complete, complete);
     }

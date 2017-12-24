@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 
 import { RecyclingCenterService } from "../../../services/recyclingcenterservice";
 import { RecyclingCenter } from "../../../domain/RecyclingCenter";
@@ -10,32 +10,39 @@ import { RecyclingCenter } from "../../../domain/RecyclingCenter";
     providers: [RecyclingCenterService]
 })
 export class RecyclingCenterMenuComponent implements OnInit {
-    public recyclingCenters: RecyclingCenter[] = []
-    public selectedRecyclingCenter: string;
+    recyclingCenters: RecyclingCenter[] = [];
+    selectedRecyclingCenter: string;
 
-    constructor(private service: RecyclingCenterService) { }
+    @Output() update = new EventEmitter<any>();
+
+    constructor(private readonly service: RecyclingCenterService) { }
 
     ngOnInit(): void {
         this.service.getRecyclingCenters().subscribe(result => {
             this.recyclingCenters = result;
-            var selectedCenter = this.service.getSelectedRecyclingCenter()
+            var selectedCenter = this.service.getSelectedRecyclingCenter();
 
             if (this.recyclingCenters.length == 0) {
                 this.recyclingCenters = [{
                     id: "None",
                     name: "None"
-                } as RecyclingCenter]
+                } as RecyclingCenter];
             }
 
             this.selectedRecyclingCenter = selectedCenter == undefined ?
                 this.recyclingCenters[0].id :
                 selectedCenter.id;
+
+
+            this.update.emit(this.selectedRecyclingCenter);
         }, error => console.error(error));
     }
 
-    public onChange(id: string): void {
+    onChange(id: string): void {
         this.selectedRecyclingCenter = id;
-        var center = this.recyclingCenters.find(center => center.id == id) as RecyclingCenter;
+        const center = this.recyclingCenters.find(center => center.id == id) as RecyclingCenter;
         this.service.setSelectedRecyclingCenter(center);
+
+        this.update.emit(id);
     }
 }

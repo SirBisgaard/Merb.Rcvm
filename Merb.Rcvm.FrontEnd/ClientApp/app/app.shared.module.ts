@@ -4,9 +4,6 @@ import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import { RouterModule } from "@angular/router";
 
-// Services 
-import { RecyclingCenterService } from "./services/recyclingcenterservice";
-
 // Components 
 import { AppComponent } from "./components/app/app.component";
 import { NavMenuComponent } from "./components/navmenu/navmenu.component";
@@ -18,6 +15,7 @@ import { RecyclingCentersCreateUpdateComponent } from "./components/recyclingcen
 import { ReportsComponent } from "./components/reports/reports.component";
 import { UsersComponent } from "./components/users/users.component";
 import { VehiclesComponent } from "./components/vehicles/vehicles.component";
+import { VehiclesCreateUpdateComponent } from "./components/vehicles/createupdate/vehiclescreateupdate.component";
 
 @NgModule({
     declarations: [
@@ -31,6 +29,7 @@ import { VehiclesComponent } from "./components/vehicles/vehicles.component";
         ReportsComponent,
         UsersComponent,
         VehiclesComponent,
+        VehiclesCreateUpdateComponent,
     ],
     imports: [
         CommonModule,
@@ -43,6 +42,8 @@ import { VehiclesComponent } from "./components/vehicles/vehicles.component";
             { path: "recycling-centers/create", component: RecyclingCentersCreateUpdateComponent },
             { path: "recycling-centers/update/:id", component: RecyclingCentersCreateUpdateComponent },
             { path: "vehicles", component: VehiclesComponent },
+            { path: "vehicles/create", component: VehiclesCreateUpdateComponent },
+            { path: "vehicles/update/:id", component: VehiclesCreateUpdateComponent },
             { path: "parts", component: PartsComponent },
             { path: "reports", component: ReportsComponent },
             { path: "users", component: UsersComponent },
