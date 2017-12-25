@@ -3,14 +3,24 @@
     <hr />
     <div class="col-lg-6 col-md-6">
         <h3>Basic Information</h3>
-
         <div class="form-group">
-            <label for="vinNumberInput">VIN Number</label>
-            <input [(ngModel)]="vehicle.vinNumber" type="text" class="form-control" id="vinNumberInput" name="vinNumberInput" placeholder="Enter VIN Number" />
+            <label for="selectedRecyclingCenterInput">Selected Recycling Center</label>
+            <select class="form-control" id="selectedRecyclingCenterInput" [(ngModel)]="vehicle.recyclingCenterId">
+                <option *ngFor="let center of recyclingCenters" [value]="center.id">{{center.name}}</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="registrationNumberInput">Registration Number</label>
             <input [(ngModel)]="vehicle.registrationNumber" type="text" class="form-control" id="registrationNumberInput" name="registrationNumberInput" placeholder="Enter Registration Number" />
+        </div>
+        <div class="form-group">
+            <label for="firstRegistrationDateInput">First Registration Date</label>
+            <div class="input-group">
+                <input [(ngModel)]="vehicle.firstRegistrationDate" type="date" class="form-control" id="firstRegistrationDateInput" name="firstRegistrationDateInput" placeholder="Enter First Registration Date" />
+                <span class="input-group-btn">
+                    <button class="btn btn-info" (click)="vehicle.firstRegistrationDate = today()" type="button">Today</button>
+                </span>
+            </div>
         </div>
         <div class="form-group">
             <label for="scrappedDateInput">Scrapped Date</label>
@@ -30,15 +40,13 @@
                 </span>
             </div>
         </div>
-        <div class="form-group">
-            <label for="selectedRecyclingCenterInput">Selected Recycling Center</label>
-            <select class="form-control" id="selectedRecyclingCenterInput" [(ngModel)]="vehicle.recyclingCenterId">
-                <option *ngFor="let center of recyclingCenters" [value]="center.id">{{center.name}}</option>
-            </select>
-        </div>
     </div>
     <div class="col-lg-6 col-md-6">
         <h3>Vehicle Information</h3>
+        <div class="form-group">
+            <label for="vinNumberInput">VIN Number</label>
+            <input [(ngModel)]="vehicle.vinNumber" type="text" class="form-control" id="vinNumberInput" name="vinNumberInput" placeholder="Enter VIN Number" />
+        </div>
         <div class="form-group">
             <label for="brandInput">Brand</label>
             <input [(ngModel)]="vehicle.brand" type="text" class="form-control" id="brandInput" name="brandInput" placeholder="Enter Brand" />
@@ -54,6 +62,10 @@
         <div class="form-group">
             <label for="colorInput">Color</label>
             <input [(ngModel)]="vehicle.color" type="text" class="form-control" id="colorInput" name="colorInput" placeholder="Enter Color" />
+        </div>
+        <div class="form-group">
+            <label for="yearInput">Year</label>
+            <input [(ngModel)]="vehicle.year" type="text" class="form-control" id="yearInput" name="yearInput" placeholder="Enter Year" />
         </div>
     </div>
     <div class="col-lg-12 col-md-12">
@@ -66,14 +78,24 @@
     <hr />
     <div class="col-lg-6 col-md-6">
         <h3>Basic Information</h3>
-
         <div class="form-group">
-            <label for="vinNumberInput">VIN Number</label>
-            <input [(ngModel)]="vehicle.vinNumber" type="text" class="form-control" id="vinNumberInput" name="vinNumberInput" placeholder="Enter VIN Number" />
+            <label for="selectedRecyclingCenterInput">Selected Recycling Center</label>
+            <select class="form-control" id="selectedRecyclingCenterInput" [(ngModel)]="vehicle.recyclingCenterId">
+                <option *ngFor="let center of recyclingCenters" [value]="center.id">{{center.name}}</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="registrationNumberInput">Registration Number</label>
             <input [(ngModel)]="vehicle.registrationNumber" type="text" class="form-control" id="registrationNumberInput" name="registrationNumberInput" placeholder="Enter Registration Number" />
+        </div>
+        <div class="form-group">
+            <label for="firstRegistrationDateInput">First Registration Date</label>
+            <div class="input-group">
+                <input [(ngModel)]="vehicle.firstRegistrationDate" type="date" class="form-control" id="firstRegistrationDateInput" name="firstRegistrationDateInput" placeholder="Enter First Registration Date" />
+                <span class="input-group-btn">
+                    <button class="btn btn-info" (click)="vehicle.firstRegistrationDate = today()" type="button">Today</button>
+                </span>
+            </div>
         </div>
         <div class="form-group">
             <label for="scrappedDateInput">Scrapped Date</label>
@@ -93,15 +115,13 @@
                 </span>
             </div>
         </div>
-        <div class="form-group">
-            <label for="selectedRecyclingCenterInput">Selected Recycling Center</label>
-            <select class="form-control" id="selectedRecyclingCenterInput" [(ngModel)]="vehicle.recyclingCenterId">
-                <option *ngFor="let center of recyclingCenters" [value]="center.id">{{center.name}}</option>
-            </select>
-        </div>
     </div>
     <div class="col-lg-6 col-md-6">
         <h3>Vehicle Information</h3>
+        <div class="form-group">
+            <label for="vinNumberInput">VIN Number</label>
+            <input [(ngModel)]="vehicle.vinNumber" type="text" class="form-control" id="vinNumberInput" name="vinNumberInput" placeholder="Enter VIN Number" />
+        </div>
         <div class="form-group">
             <label for="brandInput">Brand</label>
             <input [(ngModel)]="vehicle.brand" type="text" class="form-control" id="brandInput" name="brandInput" placeholder="Enter Brand" />
@@ -117,6 +137,10 @@
         <div class="form-group">
             <label for="colorInput">Color</label>
             <input [(ngModel)]="vehicle.color" type="text" class="form-control" id="colorInput" name="colorInput" placeholder="Enter Color" />
+        </div>
+        <div class="form-group">
+            <label for="yearInput">Year</label>
+            <input [(ngModel)]="vehicle.year" type="text" class="form-control" id="yearInput" name="yearInput" placeholder="Enter Year" />
         </div>
     </div>
     <div class="col-lg-12 col-md-12">

@@ -10,14 +10,7 @@ export class VehicleService {
     constructor(private readonly  http: Http, @Inject("BASE_URL") private baseUrl: string) { }
 
     getVehicles(id: string): Observable<IVehicle[]> {
-        return this.http.get(this.baseUrl + "api/Vehicle/RecyclingCenter/" + id).map(res => {
-            var v = (res.json() as IVehicle[]);
-            for (let i = 0; i < v.length; i++) {
-                v[i].scrappedDate = v[i].scrappedDate.substring(0, 10);
-                v[i].environmentTreatmentDate = v[i].environmentTreatmentDate.substring(0, 10);
-            }
-            return v;
-        });
+        return this.http.get(this.baseUrl + "api/Vehicle/RecyclingCenter/" + id).map(res => (res.json() as IVehicle[]));
     }
 
     getVehicle(id: string): Observable<IVehicle> {

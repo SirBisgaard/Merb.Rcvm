@@ -19,8 +19,17 @@ export class VehiclesCreateUpdateComponent {
     isUpdate: boolean = false;
     vehicle = {
         id: "",
+        recyclingCenterId: "",
         vinNumber: "",
         registrationNumber: "",
+        firstRegistrationDate: "",
+        scrappedDate: "",
+        environmentTreatmentDate: "",
+        brand: "",
+        model: "",
+        variant: "",
+        color: "",
+        year: "",
     } as IVehicle;
 
     recyclingCenters: RecyclingCenter[] = [];
@@ -87,9 +96,12 @@ export class VehiclesCreateUpdateComponent {
 
             this.vehicle.registrationNumber = update(this.vehicle.registrationNumber, result.registrationNumber);
             this.vehicle.vinNumber = update(this.vehicle.vinNumber, result.vinNumber);
+            this.vehicle.firstRegistrationDate = update(this.vehicle.firstRegistrationDate, result.firstRegistrationDate);
             this.vehicle.brand = update(this.vehicle.brand, result.brand);
             this.vehicle.model = update(this.vehicle.model, result.model);
             this.vehicle.variant = update(this.vehicle.variant, result.variant);
+            this.vehicle.year = update(this.vehicle.year, result.year);
+            this.vehicle.color = update(this.vehicle.color, result.color);
         });
     }
 

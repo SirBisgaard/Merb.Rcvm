@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
@@ -43,6 +44,9 @@ namespace Merb.Rcvm.SkatService.Domain
                 Brand = GetValue(document, "//td[@id='maerke']"),
                 Model = GetValue(document, "//td[@id='model']"),
                 Variant = GetValue(document, "//td[@id='variant']"),
+                Color = GetValue(document, "//td[@id='farve']"),
+                FirstRegistrationDate = FixDateFormat(GetValue(document, "//td[@id='foerste_reg_dato']")),
+                Year = GetValue(document, "//td[@id='model_aar']"),
             };
 
             return vehicle;
@@ -51,6 +55,13 @@ namespace Merb.Rcvm.SkatService.Domain
         private static string GetValue(HtmlDocument document, string xpath)
         {
             return document.DocumentNode.SelectSingleNode(xpath)?.InnerText ?? string.Empty;
+        }
+
+        private static string FixDateFormat(string date)
+        {
+            // yyyy-MM-dd
+            var chunks = date.Split('-');
+            return $"{chunks[2]}-{chunks[1]}-{chunks[0]}";
         }
     }
 }
