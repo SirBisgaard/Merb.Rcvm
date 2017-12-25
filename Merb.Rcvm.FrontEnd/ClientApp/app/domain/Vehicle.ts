@@ -5,8 +5,10 @@
     registrationNumber: string,
     brand: string,
     model: string,
-    color: string,
     variant: string,
+    color: string,
+    year: string,
     scrappedDate: string,
-    environmentTreatmentDate: string;
+    environmentTreatmentDate: string,
+    firstRegistrationDate: string;
 }

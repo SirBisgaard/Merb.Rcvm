@@ -27,7 +27,7 @@ export class VehiclesComponent {
 
     delete(id: string): void {
         this.vehicleService.deleteVehicle(id, () => {
-            this.ngOnInit();
+            this.recyclingCenterChange(this.recyclingCenterService.getSelectedRecyclingCenter().id);
         });
     }
 }

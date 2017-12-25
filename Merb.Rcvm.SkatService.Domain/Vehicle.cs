@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Merb.Rcvm.VehicleService.Domain
+namespace Merb.Rcvm.SkatService.Domain
 {
     public class Vehicle
     {

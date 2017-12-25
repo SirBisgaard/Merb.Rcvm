@@ -14,15 +14,25 @@
         </div>
         <div class="form-group">
             <label for="scrappedDateInput">Scrapped Date</label>
-            <input [(ngModel)]="vehicle.scrappedDate" type="date" class="form-control" id="scrappedDateInput" name="scrappedDateInput" placeholder="Enter Scrapped Date" />
+            <div class="input-group">
+                <input [(ngModel)]="vehicle.scrappedDate" type="date" class="form-control" id="scrappedDateInput" name="scrappedDateInput" placeholder="Enter Scrapped Date" />
+                <span class="input-group-btn">
+                    <button class="btn btn-info" (click)="vehicle.scrappedDate = today()" type="button">Today</button>
+                </span>
+            </div>
         </div>
         <div class="form-group">
             <label for="environmentDateInput">Environment Treatment Date</label>
-            <input [(ngModel)]="vehicle.environmentTreatmentDate" type="date" class="form-control" id="environmentDateInput" name="environmentDateInput" placeholder="Enter Environment Treatment Date" />
+            <div class="input-group">
+                <input [(ngModel)]="vehicle.environmentTreatmentDate" type="date" class="form-control" id="environmentDateInput" name="environmentDateInput" placeholder="Enter Environment Treatment Date" />
+                <span class="input-group-btn">
+                    <button class="btn btn-info" (click)="vehicle.environmentTreatmentDate = today()" type="button">Today</button>
+                </span>
+            </div>
         </div>
         <div class="form-group">
             <label for="selectedRecyclingCenterInput">Selected Recycling Center</label>
-            <select class="form-control" id="selectedRecyclingCenterInput" [ngModel]="vehicle.recyclingCenterId">
+            <select class="form-control" id="selectedRecyclingCenterInput" [(ngModel)]="vehicle.recyclingCenterId">
                 <option *ngFor="let center of recyclingCenters" [value]="center.id">{{center.name}}</option>
             </select>
         </div>
@@ -48,7 +58,7 @@
     </div>
     <div class="col-lg-12 col-md-12">
         <button type="submit" (click)="submit()" class="btn btn-success">Create</button>
-        <button type="button" class="btn btn-info pull-right">Get data from SKAT.dk</button>
+        <button type="button" (click)="getDataFromSkat()" class="btn btn-info pull-right">Get data from SKAT.dk</button>
     </div>
 </div>
 <div class="container" *ngIf="isUpdate">
@@ -67,15 +77,25 @@
         </div>
         <div class="form-group">
             <label for="scrappedDateInput">Scrapped Date</label>
-            <input [(ngModel)]="vehicle.scrappedDate" type="date" class="form-control" id="scrappedDateInput" name="scrappedDateInput" placeholder="Enter Scrapped Date" />
+            <div class="input-group">
+                <input [(ngModel)]="vehicle.scrappedDate" type="date" class="form-control" id="scrappedDateInput" name="scrappedDateInput" placeholder="Enter Scrapped Date" />
+                <span class="input-group-btn">
+                    <button class="btn btn-info" (click)="vehicle.scrappedDate = today()" type="button">Today</button>
+                </span>
+            </div>
         </div>
         <div class="form-group">
             <label for="environmentDateInput">Environment Treatment Date</label>
-            <input [(ngModel)]="vehicle.environmentTreatmentDate" type="date" class="form-control" id="environmentDateInput" name="environmentDateInput" placeholder="Enter Environment Treatment Date" />
+            <div class="input-group">
+                <input [(ngModel)]="vehicle.environmentTreatmentDate" type="date" class="form-control" id="environmentDateInput" name="environmentDateInput" placeholder="Enter Environment Treatment Date" />
+                <span class="input-group-btn">
+                    <button class="btn btn-info" (click)="vehicle.environmentTreatmentDate = today()" type="button">Today</button>
+                </span>
+            </div>
         </div>
         <div class="form-group">
             <label for="selectedRecyclingCenterInput">Selected Recycling Center</label>
-            <select class="form-control" id="selectedRecyclingCenterInput" [ngModel]="vehicle.recyclingCenterId">
+            <select class="form-control" id="selectedRecyclingCenterInput" [(ngModel)]="vehicle.recyclingCenterId">
                 <option *ngFor="let center of recyclingCenters" [value]="center.id">{{center.name}}</option>
             </select>
         </div>
@@ -101,6 +121,6 @@
     </div>
     <div class="col-lg-12 col-md-12">
         <button type="submit" (click)="submit()" class="btn btn-success">Update</button>
-        <button type="button" class="btn btn-info pull-right">Get data from SKAT.dk</button>
+        <button type="button" (click)="getDataFromSkat()" class="btn btn-info pull-right">Get data from SKAT.dk</button>
     </div>
 </div>

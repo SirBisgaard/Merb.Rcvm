@@ -12,7 +12,9 @@ namespace Merb.Rcvm.FrontEnd.Domain.DataTypes
         public string Model { get; set; }
         public string Variant { get; set; }
         public string Color { get; set; }
-        public DateTime ScrappedDate { get; set; }
-        public DateTime EnvironmentTreatmentDate { get; set; }
+        public string Year { get; set; }
+        public string ScrappedDate { get; set; }
+        public string EnvironmentTreatmentDate { get; set; }
+        public string FirstRegistrationDate { get; set; }
     }
 }
