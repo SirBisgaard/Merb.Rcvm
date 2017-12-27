@@ -1,7 +1,9 @@
-﻿using System;
+﻿
+using System;
 
 namespace Merb.Rcvm.VehicleService.Domain
 {
+    [Serializable]
     public class Vehicle
     {
         public string Id { get; set; }

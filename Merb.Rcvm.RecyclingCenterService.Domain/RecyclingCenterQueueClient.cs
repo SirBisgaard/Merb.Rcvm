@@ -20,13 +20,13 @@ namespace Merb.Rcvm.RecyclingCenterService.Domain
             _factory = new ConnectionFactory { HostName = "localhost", UserName = "guest", Password = "guest" };
             _connection = _factory.CreateConnection();
             _model = _connection.CreateModel();
-            _model.ExchangeDeclare(DeletedQueueName, ExchangeType.Fanout, true);
+            _model.QueueDeclare(DeletedQueueName, true, false, false, null);
         }
 
 
         public void RecyclingCenterDeleted(RecyclingCenter center)
         {
-            _model.BasicPublish(DeletedQueueName, "", null, center.Serialize());
+            _model.BasicPublish("", DeletedQueueName, null, center.Serialize());
         }
 
     }
