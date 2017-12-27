@@ -24,14 +24,14 @@ namespace Merb.Rcvm.VehicleService.Domain
         public async Task<IEnumerable<Vehicle>> GetAllVehicles(string recyclingCenterId)
         {
             var collection = GetCollection();
-            var filter = Builders<Vehicle>.Filter.Eq(rc => rc.RecyclingCenterId, recyclingCenterId);
+            var filter = Builders<Vehicle>.Filter.Eq(v => v.RecyclingCenterId, recyclingCenterId) & Builders<Vehicle>.Filter.Eq(v => v.IsDeleted, false);
             return await collection.Find(filter).ToListAsync();
         }
 
         public async Task<Vehicle> GetVehicle(string id)
         {
             var collection = GetCollection();
-            var filter = Builders<Vehicle>.Filter.Eq(rc => rc.Id, id);
+            var filter = Builders<Vehicle>.Filter.Eq(v => v.Id, id) & Builders<Vehicle>.Filter.Eq(v => v.IsDeleted, false);
             return await collection.Find(filter).SingleOrDefaultAsync();
         }
 
@@ -51,9 +51,9 @@ namespace Merb.Rcvm.VehicleService.Domain
 
         public async Task DeleteVehicle(string id)
         {
-            var collection = GetCollection();
-            var filter = Builders<Vehicle>.Filter.Eq(rc => rc.Id, id);
-            await collection.FindOneAndDeleteAsync(filter);
+            var vehicle = await GetVehicle(id);
+            vehicle.IsDeleted = true;
+            await UpdateVehicle(vehicle);
         }
     }
 }

@@ -16,5 +16,6 @@ namespace Merb.Rcvm.VehicleService.Domain
         public string ScrappedDate { get; set; }
         public string EnvironmentTreatmentDate { get; set; }
         public string FirstRegistrationDate { get; set; }
+        public bool IsDeleted { get; set; } = false;
     }
 }
