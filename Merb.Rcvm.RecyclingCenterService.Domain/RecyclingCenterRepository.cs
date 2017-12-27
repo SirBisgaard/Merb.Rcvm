@@ -7,16 +7,18 @@ namespace Merb.Rcvm.RecyclingCenterService.Domain
 {
     public class RecyclingCenterRepository
     {
-        private readonly IMongoClient _client;
+        private readonly IMongoClient _mongoClient;
+        private readonly RecyclingCenterQueueClient _queueClient;
 
         public RecyclingCenterRepository()
         {
-            _client = new MongoClient("mongodb://localhost:27017");
+            _mongoClient = new MongoClient("mongodb://localhost:27017");
+            _queueClient = new RecyclingCenterQueueClient();
         }
 
         private IMongoCollection<RecyclingCenter> GetCollection()
         {
-            var db = _client.GetDatabase("recycling-center");
+            var db = _mongoClient.GetDatabase("recycling-center");
             var collection = db.GetCollection<RecyclingCenter>("centers");
             return collection;
         }
@@ -54,6 +56,9 @@ namespace Merb.Rcvm.RecyclingCenterService.Domain
             var center = await GetRecyclingCenter(id);
             center.IsDeleted = true;
             await UpdateRecyclingCenter(center);
+
+            // Publish that the recycling center is deleted.
+            _queueClient.RecyclingCenterDeleted(center);
         }
     }
 }

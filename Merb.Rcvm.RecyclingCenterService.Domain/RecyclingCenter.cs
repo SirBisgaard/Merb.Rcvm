@@ -1,5 +1,8 @@
-﻿namespace Merb.Rcvm.RecyclingCenterService.Domain
+﻿using System;
+
+namespace Merb.Rcvm.RecyclingCenterService.Domain
 {
+    [Serializable]
     public class RecyclingCenter
     {
         public string Id { get; set; }
