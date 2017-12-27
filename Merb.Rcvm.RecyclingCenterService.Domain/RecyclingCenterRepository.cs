@@ -24,13 +24,14 @@ namespace Merb.Rcvm.RecyclingCenterService.Domain
         public async Task<IEnumerable<RecyclingCenter>> GetAllRecyclingCenters()
         {
             var collection = GetCollection();
-            return await collection.Find(Builders<RecyclingCenter>.Filter.Empty).ToListAsync();
+            var filter = Builders<RecyclingCenter>.Filter.Eq(rc => rc.IsDeleted, false);
+            return await collection.Find(filter).ToListAsync();
         }
 
-        public async Task<RecyclingCenter> GetRecyclingCenterAsync(string id)
+        public async Task<RecyclingCenter> GetRecyclingCenter(string id)
         {
             var collection = GetCollection();
-            var filter = Builders<RecyclingCenter>.Filter.Eq(rc => rc.Id, id);
+            var filter = Builders<RecyclingCenter>.Filter.Eq(rc => rc.Id, id) & Builders<RecyclingCenter>.Filter.Eq(rc => rc.IsDeleted, false);
             return await collection.Find(filter).SingleOrDefaultAsync();
         }
 
@@ -50,9 +51,9 @@ namespace Merb.Rcvm.RecyclingCenterService.Domain
 
         public async Task DeleteRecyclingCenter(string id)
         {
-            var collection = GetCollection();
-            var filter = Builders<RecyclingCenter>.Filter.Eq(rc => rc.Id, id);
-            await collection.FindOneAndDeleteAsync(filter);
+            var center = await GetRecyclingCenter(id);
+            center.IsDeleted = true;
+            await UpdateRecyclingCenter(center);
         }
     }
 }

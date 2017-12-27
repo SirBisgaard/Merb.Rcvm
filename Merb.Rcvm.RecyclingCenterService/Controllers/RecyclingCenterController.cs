@@ -26,7 +26,7 @@ namespace Merb.Rcvm.RecyclingCenterService.Controllers
         [HttpGet("{id}")]
         public async Task<RecyclingCenter> Get(string id)
         {
-            return await _repository.GetRecyclingCenterAsync(id);
+            return await _repository.GetRecyclingCenter(id);
         }
 
         // POST api/values
