@@ -1,0 +1,79 @@
+<div class="container" *ngIf="!isUpdate">
+    <h1>Add Recycling Center</h1>
+    <hr />
+    <form name="recyclingCenterCreateUpdate" (ngSubmit)="submit()">
+        <div class="col-lg-6 col-md-6">
+            <h3>Basic Information</h3>
+            <div class="form-group">
+                <label for="locationNameInput">Location name</label>
+                <input [(ngModel)]="recyclingCenter.name" type="text" class="form-control" id="locationNameInput" name="locationNameInput" placeholder="Enter location name">
+            </div>
+            <div class="form-group">
+                <label for="phoneInput">Phone</label>
+                <input [(ngModel)]="recyclingCenter.phone" type="tel" class="form-control" id="phoneInput" name="phoneInput" placeholder="Enter phone number">
+            </div>
+            <div class="form-group">
+                <label for="emailInput">Email</label>
+                <input [(ngModel)]="recyclingCenter.email" type="email" class="form-control" id="emailInput" name="emailInput" placeholder="Enter email">
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <h3>Address Information</h3>
+            <div class="form-group">
+                <label for="addressInput">Address</label>
+                <input [(ngModel)]="recyclingCenter.address" type="text" class="form-control" id="addressInput" name="addressInput" placeholder="Enter address">
+            </div>
+            <div class="form-group">
+                <label for="zipInput">Zip</label>
+                <input [(ngModel)]="recyclingCenter.zip" type="number" class="form-control" id="zipInput" name="numberInput" placeholder="Enter zip">
+            </div>
+            <div class="form-group">
+                <label for="cityInput">City</label>
+                <input [(ngModel)]="recyclingCenter.city" type="text" class="form-control" id="cityInput" name="cityInput" placeholder="Enter city">
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12">
+            <button type="submit" class="btn btn-success">Create</button>
+        </div>
+    </form>
+</div>
+<div class="container" *ngIf="isUpdate">
+    <h1>Update Recycling Center</h1>
+    <hr />
+    <form name="recyclingCenterCreateUpdate" (ngSubmit)="submit()">
+        <div class="col-lg-6 col-md-6">
+            <h3>Basic Information</h3>
+            <div class="form-group">
+                <label for="locationNameInput">Location name</label>
+                <input [(ngModel)]="recyclingCenter.name" type="text" class="form-control" id="locationNameInput" name="locationNameInput" placeholder="Enter location name">
+            </div>
+            <div class="form-group">
+                <label for="phoneInput">Phone</label>
+                <input [(ngModel)]="recyclingCenter.phone" type="tel" class="form-control" id="phoneInput" name="phoneInput" placeholder="Enter phone number">
+            </div>
+            <div class="form-group">
+                <label for="emailInput">Email</label>
+                <input [(ngModel)]="recyclingCenter.email" type="email" class="form-control" id="emailInput" name="emailInput" placeholder="Enter email">
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <h3>Address Information</h3>
+            <div class="form-group">
+                <label for="addressInput">Address</label>
+                <input [(ngModel)]="recyclingCenter.address" type="text" class="form-control" id="addressInput" name="addressInput" placeholder="Enter address">
+            </div>
+            <div class="form-group">
+                <label for="zipInput">Zip</label>
+                <input [(ngModel)]="recyclingCenter.zip" type="number" class="form-control" id="zipInput" name="numberInput" placeholder="Enter zip">
+            </div>
+            <div class="form-group">
+                <label for="cityInput">City</label>
+                <input [(ngModel)]="recyclingCenter.city" type="text" class="form-control" id="cityInput" name="cityInput" placeholder="Enter city">
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12">
+            <button type="submit" class="btn btn-success">Update</button>
+            <button type="button" (click)="delete()" class="btn btn-danger pull-right">Delete</button>
+        </div>
+    </form>
+</div>
